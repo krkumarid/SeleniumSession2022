@@ -1,0 +1,112 @@
+/*************** XPATH Formation *********************/
+//a[@class='list-group-item']
+//input[@name='email' and @type='text']
+//input[@type='text']
+//input[@name='email']
+//input[@name='input-email']
+
+/****** contains(@attribute,'value')*****/
+
+<input id="test_123"/>
+<input id="test_234"/>
+input id ="test_345"/>
+
+In the above case the id is keep on changing,we can call it as a dynamic id.in that case we can use conatins() and strats-with() functions.
+//a[contains(@href,'wishlist' )and contains(text(),'Wish List') and contains(@class,'list-group-item')]
+//input[contains(@id,'input-')]
+
+/***** starts-with() ***/
+//input[starts-with(@id,'input')]
+//input[starts-with(@id,'user')]
+//input[starts-wit(@id,'test_')]
+
+
+/******** text() ****/
+//a[text() ='Register']
+
+/*** xpath with class names
+
+form-control private-form__control login-email - 3 classes
+
+form-control private-form__control login-password m-bottom-3 4-classes
+
+How will you use this mixed classes in the xpath?
+
+
+//htmltag[@class= 'class1 class2 class3']
+//input[@class='form-control private-form__control login-email']
+//input[@class='form-control private-form__control login-password m-bottom-3']
+
+/** iNTERVIEW QUESTION*/////
+1.By x1 = By.xpath("//input[@class='form-control private-form__control login-email']")
+
+2.By x2 = By.className( "form-control private-form__control login-email")
+
+3.By x3= By.className("login-email")
+
+which one is  correct?
+
+1- correct its the correct Xpath
+3- is Correct.
+
+The reason is that in the case of class name always use unique classname.No multiple clas names are not allowed.
+
+/********** Xpath with Index ***/
+
+(//div[@class='container'])[3]//a
+((//div[@class='container'])[3]//ul)[1]
+((//div[@class='container'])[3]//ul)[5]
+//ul[@class='social-links']//a
+(//input[@type='text'])[3]--Contact number
+(//input[@type='text'])[position()=3]-- contact number
+
+(//input[@type='text'])[last()]
+(((//div[@class='navFooterVerticalRow navAccessibility'])//ul)[last()]//a)[ last()]--  xpath for Amazon.com footer-help link
+(((//div[@class='navFooterVerticalRow navAccessibility'])//ul)[3]//a)[last()] xpath for Amazon Currency Converter
+(((//div[@class='navFooterVerticalRow navAccessibility'])//ul)[2]//a)[5] 
+
+(//div[@class='navFooterLine navFooterLinkLine navFooterDescLine']//a)[last()]
+/*********************  Webtable XPath ****************************************////
+
+//strong[text()='Canada']/parent::td/preceding-sibling::td/input  --check box
+//strong[text()='Canada']/../preceding-sibling::td/child::input  -- same for Canada
+
+//td[text()='Kabul']//preceding-sibling::td/input -- check box
+
+(//input[@id='username']//ancestor::form[@id='hs-login']//a)[1]
+
+
+/****************************** CSS Selector*****/
+
+#input-email ( #id)
+.form-control ( .classname)
+
+input#input-email ( <tag>#id)
+input.form-control( <tag>.classname)
+#input-email.form-control( id.classname)
+input#input-email.form-control (<tag>#id.classname)
+
+.form-control#input-email ( .classname#id)
+
+.form-control.private-form__control.login-email ( multiple class)
+input.form-control.private-form__control.login-email
+
+input[name='Name'][class='text'] // multiple attributes(2 attributes)
+
+
+input[name='Name'][class='text'][type='text'] //3 attributes.
+input[name='Name'] // without id and class name
+
+/**** Parent Child******/
+div.middleColumn>input
+div.middleColumn input
+
+/*** following sibling in css selector
+
+div.private-form__input-wrapper+div -- use + operator
+
+footer>div.container>.row>div>ul.list-unstyled>li+li 
+/***** Indexing in CSS Selector*********/
+div.footer-main ul li:nth-of-type(3)>a
+
+//div[@id='comboTree916439DropDownContainer']//li
